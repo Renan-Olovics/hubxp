@@ -1,6 +1,13 @@
 'use client'
 
-import { createContext, useContext, useState, useEffect, useCallback, ReactNode } from 'react'
+import {
+  createContext,
+  useContext,
+  useState,
+  useEffect,
+  useCallback,
+  type PropsWithChildren,
+} from 'react'
 
 import type { News } from '@/types/news'
 
@@ -39,7 +46,7 @@ const saveFavoritesToStorage = (favorites: News[]): void => {
   }
 }
 
-export const FavoritesProvider = ({ children }: { children: ReactNode }) => {
+export const FavoritesProvider = ({ children }: PropsWithChildren) => {
   const [favorites, setFavorites] = useState<News[]>([])
   const [isLoaded, setIsLoaded] = useState(false)
 
